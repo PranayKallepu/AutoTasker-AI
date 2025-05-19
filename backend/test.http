@@ -1,0 +1,56 @@
+# @rootURL = http://localhost:3001
+@rootURL = https://autotasker-ai.onrender.com
+@FIREBASE_ID_TOKEN = eyJhbGciOiJSUzI1NiIsImtpZCI6IjY3ZDhjZWU0ZTYwYmYwMzYxNmM1ODg4NTJiMjA5MTZkNjRjMzRmYmEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vYXV0b3Rhc2tlci1haS02YjE4OSIsImF1ZCI6ImF1dG90YXNrZXItYWktNmIxODkiLCJhdXRoX3RpbWUiOjE3NDc2NzUyMzgsInVzZXJfaWQiOiJtWW9xbURLbHgwWTNMZ3h5Tk5iV1p4TWV5NXIxIiwic3ViIjoibVlvcW1ES2x4MFkzTGd4eU5OYldaeE1leTVyMSIsImlhdCI6MTc0NzY3NTIzOCwiZXhwIjoxNzQ3Njc4ODM4LCJlbWFpbCI6InByYW5heUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicHJhbmF5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.dqDWLgniERtNl8dkWDP_mxyiBG00MGb5PWMC-vCzW7T3FZPFOkYXiZIDUGcdxXUwvBVsB6IjpF0H-2KsW8AF6dI-6vustnCj9bbIKT88Nm3VRHPyNqs1ywoeJEkMNBzRtud714uQyruJHRuACbUTqcOWeljZEAwettGqgtC9lsFd6rQSvjGl9HvhNXK_j9EmCmc-KZdFY6ue8qzUuMwSOGpB01ebexRG4VIlD20m6743mPKpbGFTTzcQXgX3d0w6XU7Pq8jTWw12tszpMWwexJ3HJX10Fn4TYltFvpiM4XLqfHoBf_3yVAYe9zonv_uDEzQ3CsAon_yX6Qbeui3m6A
+
+
+###
+//🔍 Generate tasks from Gemini API
+POST {{rootURL}}/api/generate-tasks
+Content-Type: application/json
+Authorization: Bearer {{FIREBASE_ID_TOKEN}}
+
+
+{
+  "topic": "react"
+}
+
+
+### 
+//Get all tasks for a user
+GET {{rootURL}}/api/tasks/mYoqmDKlx0Y3LgxyNNbWZxMey5r1
+Content-Type: application/json
+Authorization: Bearer {{FIREBASE_ID_TOKEN}}
+
+###
+//Create a new task
+POST {{rootURL}}/api/tasks
+Content-Type: application/json
+Authorization: Bearer {{FIREBASE_ID_TOKEN}}
+
+{
+  "userId": "mYoqmDKlx0Y3LgxyNNbWZxMey5r1",
+  "topic": "react",
+  "content": [
+    "Set up a React development environment.",
+    "Build a simple component.",
+    "Learn about JSX syntax.",
+    "Practice state management.",
+    "Create a small React app."
+  ]
+}
+
+###
+//Mark a task as completed
+PUT {{rootURL}}/api/tasks/1
+Content-Type: application/json
+Authorization: Bearer {{FIREBASE_ID_TOKEN}}
+
+{
+  "completed": true
+}
+
+###
+//Delete a task
+DELETE {{rootURL}}/api/tasks/1
+Content-Type: application/json
+Authorization: Bearer {{FIREBASE_ID_TOKEN}}
