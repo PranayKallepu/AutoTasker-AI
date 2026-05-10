@@ -15,7 +15,7 @@ const inputSchema = zod_1.z.object({
 const generateTasks = async (req, res) => {
     try {
         const { topic } = inputSchema.parse(req.body);
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
         const prompt = `Generate a list of 5 concise, actionable tasks to learn about ${topic}. Return only the tasks, no numbering or formatting.`;
         const result = await model.generateContent(prompt);
         const response = await result.response;

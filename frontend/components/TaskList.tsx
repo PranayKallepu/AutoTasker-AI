@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import TaskItem from "./TaskItem";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
@@ -24,7 +24,7 @@ export default function TaskList({ userId }: { userId: string }) {
   const [error, setError] = useState<string | null>(null);
   const { user } = useAuth();
 
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -46,11 +46,11 @@ export default function TaskList({ userId }: { userId: string }) {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [user, userId]);
 
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, [fetchTasks]);
 
   const completedCount = tasks.filter((task) => task.completed).length;
   const percentComplete =
