@@ -15,7 +15,7 @@ export const generateTasks = async (req: Request, res: Response) => {
   try {
     const { topic } = inputSchema.parse(req.body);
 
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
     const prompt = `Generate a list of 5 concise, actionable tasks to learn about ${topic}. Return only the tasks, no numbering or formatting.`;
 
